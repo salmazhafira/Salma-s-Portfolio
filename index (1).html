@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salma Zhafira Muchtar — Data Scientist</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #F7F5F0;
+    --surface: #FFFFFF;
+    --text: #1A1A18;
+    --muted: #6B6B67;
+    --border: #E2DED6;
+    --accent: #2D5016;
+    --accent-light: #EAF0E3;
+    --tag-bg: #F0EDE8;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(247,245,240,0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 56px;
+  }
+  .nav-logo { font-family: 'DM Serif Display', serif; font-size: 18px; letter-spacing: -0.3px; }
+  .nav-links { display: flex; gap: 24px; }
+  .nav-links a { font-size: 13px; color: var(--muted); text-decoration: none; }
+  .nav-links a:hover { color: var(--text); }
+
+  /* HERO */
+  .hero {
+    max-width: 860px; margin: 0 auto;
+    padding: 5rem 2rem 4rem;
+    display: grid; grid-template-columns: 1fr auto; align-items: start; gap: 3rem;
+  }
+  .hero-eyebrow {
+    font-size: 12px; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .hero-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(36px, 6vw, 56px);
+    line-height: 1.1; letter-spacing: -1px;
+    margin-bottom: 16px;
+    color: var(--text);
+  }
+  .hero-name em { font-style: italic; color: var(--muted); }
+  .hero-bio { font-size: 15px; color: var(--muted); max-width: 440px; line-height: 1.75; margin-bottom: 28px; }
+  .hero-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-primary {
+    padding: 10px 20px; background: var(--text); color: var(--bg);
+    border: none; border-radius: 6px; font-size: 13px; font-weight: 500;
+    cursor: pointer; text-decoration: none; display: inline-block;
+  }
+  .btn-outline {
+    padding: 10px 20px; background: transparent; color: var(--text);
+    border: 1px solid var(--border); border-radius: 6px; font-size: 13px; font-weight: 500;
+    cursor: pointer; text-decoration: none; display: inline-block;
+  }
+  .btn-primary:hover { opacity: 0.85; }
+  .btn-outline:hover { background: var(--surface); }
+
+  .hero-avatar {
+    width: 120px; height: 120px; border-radius: 50%;
+    background: var(--accent-light);
+    border: 3px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px; color: var(--accent);
+    flex-shrink: 0;
+    overflow: hidden;
+    align-self: flex-start;
+  }
+
+  /* SKILLS */
+  .skills-section {
+    max-width: 860px; margin: 0 auto;
+    padding: 0 2rem 4rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px;
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill-tag {
+    font-size: 12px; padding: 5px 13px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 100px; color: var(--muted);
+  }
+
+  /* PROJECTS */
+  .projects-section {
+    max-width: 860px; margin: 0 auto;
+    padding: 3.5rem 2rem 4rem;
+  }
+  .projects-header {
+    display: flex; align-items: baseline; justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+  .projects-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px; letter-spacing: -0.5px;
+  }
+  .projects-count { font-size: 13px; color: var(--muted); }
+
+  .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.07);
+  }
+
+  /* IMAGE AREA */
+  .card-image {
+    width: 100%; height: 180px;
+    position: relative; overflow: hidden;
+    background: var(--tag-bg);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .card-image img {
+    width: 100%; height: 100%; object-fit: cover;
+    display: block;
+  }
+  .card-image .img-placeholder {
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+  }
+  .card-image .img-placeholder svg { opacity: 0.35; }
+  .card-image .img-placeholder span { font-size: 11px; color: var(--muted); opacity: 0.7; }
+  .card-image-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.35) 100%);
+  }
+  .card-type-badge {
+    position: absolute; top: 10px; left: 10px;
+    font-size: 10px; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 10px; border-radius: 100px;
+    background: rgba(255,255,255,0.9); color: var(--text);
+  }
+
+  /* CARD BODY */
+  .card-body { padding: 1.1rem 1.2rem 1.2rem; }
+  .card-title { font-size: 15px; font-weight: 500; margin-bottom: 6px; line-height: 1.4; }
+  .card-desc { font-size: 13px; color: var(--muted); line-height: 1.65; margin-bottom: 12px; }
+
+  .card-metrics {
+    display: flex; gap: 14px; margin-bottom: 12px;
+    padding: 10px 12px; background: var(--bg);
+    border-radius: 8px;
+  }
+  .metric-item { display: flex; flex-direction: column; }
+  .metric-val { font-size: 15px; font-weight: 500; color: var(--text); }
+  .metric-lbl { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+
+  .card-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .card-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .card-tag {
+    font-size: 10px; padding: 3px 9px;
+    background: var(--tag-bg); color: var(--muted);
+    border-radius: 100px;
+  }
+  .card-links { display: flex; gap: 6px; flex-shrink: 0; }
+  .card-link {
+    font-size: 11px; font-weight: 500;
+    padding: 5px 12px; border-radius: 6px;
+    text-decoration: none; display: inline-block;
+    border: 1px solid var(--border); color: var(--text);
+    white-space: nowrap;
+  }
+  .card-link:hover { background: var(--bg); }
+  .card-link.primary { background: var(--text); color: var(--bg); border-color: var(--text); }
+  .card-link.primary:hover { opacity: 0.85; }
+
+  /* CONTACT */
+  .contact-section {
+    max-width: 860px; margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+    border-top: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;
+  }
+  .contact-heading {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px; margin-bottom: 6px; letter-spacing: -0.3px;
+  }
+  .contact-sub { font-size: 13px; color: var(--muted); }
+  .contact-links { display: flex; gap: 10px; flex-wrap: wrap; }
+
+  /* IMAGE colors per project */
+  .img-clf { background: #DDE8F7; }
+  .img-rec { background: #E8E3F7; }
+  .img-fore { background: #DDEEE6; }
+  .img-dash { background: #F7EDD8; }
+
+  /* SVG icons in placeholders */
+  .img-clf svg { color: #4A7CC7; }
+  .img-rec svg { color: #7A5BC7; }
+  .img-fore svg { color: #3A8A5C; }
+  .img-dash svg { color: #C77A2A; }
+
+  @media (max-width: 640px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-avatar { display: none; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .contact-section { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Portfolio.</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="about">
+  <div class="hero">
+    <div>
+      <div class="hero-eyebrow">Statistics Graduate</div>
+      <h1 class="hero-name">Salma<br><em>Zhafira Muchtar</em></h1>
+      <p class="hero-bio">A Statistics graduate skilled in data processing, analysis, and visualization, from data cleaning to delivering insights that support decision making.</p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn-primary">View Projects</a>
+        <a href="https://bit.ly/SalmaZM_CV" class="btn-outline">Download CV</a>
+        <a href="https://github.com/salmazhafira" class="btn-outline">GitHub</a>
+        <a href="https://www.linkedin.com/in/salmazhafiramuchtar" class="btn-outline">LinkedIn</a>
+      </div>
+    </div>
+    <div class="hero-avatar">
+      <img src="salma.jpg" alt="Salma Zhafira Muchtar" 
+      style="width:120px; height:120px; object-fit:cover; border-radius:50%;">
+    </div>
+  </div><!-- end .hero -->
+
+  <!-- SKILLS -->
+  <div class="skills-section">
+    <div class="section-label">Tech Stack</div>
+    <div class="skill-tags">
+      <span class="skill-tag">Python</span>
+      <span class="skill-tag">R</span>
+      <span class="skill-tag">SQL</span>
+      <span class="skill-tag">TensorFlow</span>
+      <span class="skill-tag">Scikit-learn</span>
+      <span class="skill-tag">Pandas</span>
+      <span class="skill-tag">NumPy</span>
+      <span class="skill-tag">Streamlit</span>
+      <span class="skill-tag">PyTorch</span>
+      <span class="skill-tag">Jupyter Notebook</span>
+      <span class="skill-tag">Excel</span>
+      <span class="skill-tag">SPSS</span>
+      <span class="skill-tag">Git</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="projects-section">
+    <div class="projects-header">
+      <h2 class="projects-title">Projects</h2>
+      <span class="projects-count">3 projects</span>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- 1. Image Classification -->
+      <div class="project-card">
+        <div class="card-image img-clf">
+          <img src="Klasifikasi-Gambar.png" alt="Plant Disease Detection">
+          <div class="card-image-overlay"></div>
+          <span class="card-type-badge">Image Classification</span>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Plant Disease Detection</div>
+          <div class="card-desc">MobileNetV3-ECA model that classifies 10 rice leaf disease categories from images, helping farmers identify plant conditions early.</div>
+          <div class="card-metrics">
+            <div class="metric-item"><span class="metric-val">93.73%</span><span class="metric-lbl">Accuracy</span></div>
+            <div class="metric-item"><span class="metric-val">10</span><span class="metric-lbl">Classes</span></div>
+            <div class="metric-item"><span class="metric-val">3345</span><span class="metric-lbl">Images</span></div>
+          </div>
+          <div class="card-footer">
+            <div class="card-tags">
+              <span class="card-tag">TensorFlow</span>
+              <span class="card-tag">CNN</span>
+              <span class="card-tag">Transfer Learning</span>
+              <span class="card-tag">OpenCV</span>
+            </div>
+            <div class="card-links">
+              <a href="https://github.com/salmazhafira/Klasifikasi-Penyakit-Daun-Padi-menggunakan-Arsitektur-MobileNetV3-ECA" class="card-link">GitHub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Recommendation System -->
+      <div class="project-card">
+        <div class="card-image img-rec">
+          <img src="Sistem-Rekomendasi.png" alt="Book Recommendation System">
+          <div class="card-image-overlay"></div>
+          <span class="card-type-badge">Recommendation System</span>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Book Recommendation System</div>
+          <div class="card-desc">Hybrid book recommendation system using content-based and collaborative filtering to deliver personalized top-10 suggestions.</div>
+          <div class="card-metrics">
+            <div class="metric-item"><span class="metric-val">0.4194</span><span class="metric-lbl">Recall@10</span></div>
+            <div class="metric-item"><span class="metric-val">0.1880</span><span class="metric-lbl">Precision@10</span></div>
+            <div class="metric-item"><span class="metric-val">271k+</span><span class="metric-lbl">Users</span></div>
+          </div>
+          <div class="card-footer">
+            <div class="card-tags">
+              <span class="card-tag">Collaborative Filtering</span>
+              <span class="card-tag">Content-based Filtering</span>
+              <span class="card-tag">Matrix Factorization</span>
+              <span class="card-tag">Python</span>
+            </div>
+            <div class="card-links">
+              <a href="https://github.com/salmazhafira/Sistem-Rekomendasi-Buku" class="card-link">GitHub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 3. Dashboard -->
+      <div class="project-card">
+        <div class="card-image img-clf">
+          <img src="Dashboard.png" alt="Brazilian e-Commerce Public Dashboard">
+          <div class="card-image-overlay"></div>
+          <span class="card-type-badge">Dashboard</span>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Brazilian e-Commerce Public Dashboard</div>
+          <div class="card-desc">City-level interactive dashboard covering product sales, revenue, seller quality, and RFM customer segmentation for Brazilian e-commerce.</div>
+          <div class="card-metrics">
+            <div class="metric-item"><span class="metric-val">5570</span><span class="metric-lbl">City</span></div>
+            <div class="metric-item"><span class="metric-val">2016-2018</span><span class="metric-lbl">Years</span></div>
+            <div class="metric-item"><span class="metric-val">9</span><span class="metric-lbl">Charts</span></div>
+          </div>
+          <div class="card-footer">
+            <div class="card-tags">
+              <span class="card-tag">Streamlit</span>
+              <span class="card-tag">Plotly</span>
+              <span class="card-tag">Pandas</span>
+            </div>
+            <div class="card-links">
+              <a href="https://github.com/salmazhafira/Analisis-Brazilian-E-Commerce-Public-Dashboard" class="card-link">GitHub</a>
+              <a href="https://jyzko6rmfhijdzqzvxpqst.streamlit.app/" class="card-link primary">Live</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-section">
+    <div>
+      <h3 class="contact-heading">Let's work together</h3>
+      <p class="contact-sub">Open to full-time and freelance opportunities · <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="077d6f66616e756674666b6a666a47606a666e6b2964686a">[email&#160;protected]</a></strong></p>
+    </div>
+    <div class="contact-links">
+      <a href="/cdn-cgi/l/email-protection#215b49404748534052404d4c404c61464c40484d0f424e4c" class="btn-primary">Send Email</a>
+      <a href="https://www.linkedin.com/in/salmazhaf
