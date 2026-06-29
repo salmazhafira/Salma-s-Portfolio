@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Salma Zhafira Muchtar — Data Scientist</title>
+<title>Salma Zhafira Muchtar — Data Analyst</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -220,11 +220,163 @@
   .img-fore svg { color: #3A8A5C; }
   .img-dash svg { color: #C77A2A; }
 
+  /* ── SHARED SECTION WRAPPER ── */
+  .section-wrap {
+    max-width: 860px; margin: 0 auto;
+    padding: 3.5rem 2rem 4rem;
+    border-top: 1px solid var(--border);
+  }
+  .section-header {
+    display: flex; align-items: baseline; justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px; letter-spacing: -0.5px;
+  }
+  .section-count { font-size: 13px; color: var(--muted); }
+
+  /* ── THESIS ── */
+  .thesis-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 14px; padding: 1.6rem 1.8rem;
+    display: grid; grid-template-columns: 1fr auto; gap: 1.2rem; align-items: start;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .thesis-card:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,0.06); }
+  .thesis-eyebrow {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 8px;
+  }
+  .thesis-title { font-size: 16px; font-weight: 500; line-height: 1.45; margin-bottom: 8px; }
+  .thesis-meta { font-size: 13px; color: var(--muted); margin-bottom: 12px; line-height: 1.6; }
+  .thesis-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 14px; }
+  .thesis-links { display: flex; gap: 8px; }
+
+  /* ── EXPERIENCE / MAGANG ── */
+  .timeline { display: flex; flex-direction: column; gap: 0; }
+  .timeline-item {
+    display: grid; grid-template-columns: 120px 1fr; gap: 0 1.6rem;
+    position: relative;
+  }
+  .timeline-item + .timeline-item { margin-top: 0; }
+  .timeline-left {
+    padding-top: 3px;
+    text-align: right;
+  }
+  .timeline-period {
+    font-size: 12px; color: var(--muted); line-height: 1.5;
+    white-space: nowrap;
+  }
+  .timeline-right {
+    padding-bottom: 2.2rem;
+    border-left: 2px solid var(--border);
+    padding-left: 1.6rem;
+    position: relative;
+  }
+  .timeline-right::before {
+    content: '';
+    position: absolute; left: -5px; top: 5px;
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--accent); border: 2px solid var(--bg);
+  }
+  .timeline-item:last-child .timeline-right { padding-bottom: 0; }
+  .timeline-role { font-size: 15px; font-weight: 500; margin-bottom: 2px; }
+  .timeline-company {
+    font-size: 13px; color: var(--accent); font-weight: 500; margin-bottom: 6px;
+  }
+  .timeline-desc { font-size: 13px; color: var(--muted); line-height: 1.65; margin-bottom: 8px; }
+  .timeline-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+
+  /* ── ORGANISASI ── */
+  .org-list { display: flex; flex-direction: column; gap: 12px; }
+  .org-item {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1rem 1.2rem;
+    display: flex; align-items: flex-start; gap: 12px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .org-item:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.05); }
+  .org-icon {
+    width: 38px; height: 38px; flex-shrink: 0; border-radius: 10px;
+    background: var(--accent-light); display: flex; align-items: center; justify-content: center;
+    font-size: 17px;
+  }
+  .org-body { flex: 1; }
+  .org-role { font-size: 14px; font-weight: 500; margin-bottom: 2px; }
+  .org-name { font-size: 13px; color: var(--accent); font-weight: 500; margin-bottom: 4px; }
+  .org-period { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+  .org-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+
+  /* ── SERTIFIKAT & PELATIHAN ── */
+  .cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .cert-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1rem 1.1rem;
+    display: flex; gap: 12px; align-items: flex-start;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .cert-card:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.05); }
+  .cert-icon {
+    width: 36px; height: 36px; flex-shrink: 0; border-radius: 8px;
+    background: var(--accent-light); display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+  }
+  .cert-body { flex: 1; min-width: 0; }
+  .cert-name { font-size: 13px; font-weight: 500; margin-bottom: 2px; line-height: 1.4; }
+  .cert-issuer { font-size: 12px; color: var(--accent); font-weight: 500; margin-bottom: 2px; }
+  .cert-date { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+  .cert-link {
+    font-size: 11px; font-weight: 500;
+    padding: 3px 10px; border-radius: 5px;
+    text-decoration: none; display: inline-block;
+    border: 1px solid var(--border); color: var(--text);
+  }
+  .cert-link:hover { background: var(--bg); }
+
+  /* ── ACHIEVEMENTS ── */
+  .achievement-list { display: flex; flex-direction: column; gap: 14px; }
+  .achievement-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 14px; padding: 1.2rem 1.4rem;
+    display: grid; grid-template-columns: 52px 1fr; gap: 1rem; align-items: start;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .achievement-card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,0.06); }
+  .achievement-badge {
+    width: 52px; height: 52px; border-radius: 13px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; flex-shrink: 0;
+  }
+  .badge-gold { background: #FEF3C7; }
+  .badge-green { background: var(--accent-light); }
+  .badge-blue { background: #EFF6FF; }
+  .achievement-type {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 4px;
+  }
+  .achievement-title { font-size: 15px; font-weight: 500; margin-bottom: 3px; line-height: 1.4; }
+  .achievement-event { font-size: 13px; color: var(--accent); font-weight: 500; margin-bottom: 5px; }
+  .achievement-desc { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 8px; }
+  .achievement-footer { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .achievement-year {
+    font-size: 11px; font-weight: 500; padding: 2px 9px;
+    border-radius: 20px; background: var(--tag-bg); color: var(--muted);
+  }
+
   @media (max-width: 640px) {
     .hero { grid-template-columns: 1fr; }
     .hero-avatar { display: none; }
     .projects-grid { grid-template-columns: 1fr; }
     .contact-section { flex-direction: column; }
+    .timeline-item { grid-template-columns: 1fr; }
+    .timeline-left { text-align: left; padding-top: 0; margin-bottom: 4px; }
+    .timeline-right { border-left: none; padding-left: 0; }
+    .timeline-right::before { display: none; }
+    .cert-grid { grid-template-columns: 1fr; }
+    .thesis-card { grid-template-columns: 1fr; }
+    .achievement-card { grid-template-columns: 44px 1fr; }
   }
 </style>
 </head>
@@ -234,7 +386,10 @@
   <div class="nav-logo">Portfolio.</div>
   <div class="nav-links">
     <a href="#about">About</a>
+    <a href="#experience">Experience</a>
     <a href="#projects">Projects</a>
+    <a href="#achievements">Achievements</a>    
+    <a href="#certificates">Certificates</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
@@ -249,6 +404,7 @@
       <div class="hero-actions">
         <a href="#projects" class="btn-primary">View Projects</a>
         <a href="https://bit.ly/SalmaZM_CV" class="btn-outline">Download CV</a>
+        <a href="#thesis" class="btn-outline">📄 Thesis</a>
         <a href="https://github.com/salmazhafira" class="btn-outline">GitHub</a>
         <a href="https://www.linkedin.com/in/salmazhafiramuchtar" class="btn-outline">LinkedIn</a>
       </div>
@@ -263,20 +419,31 @@
   <div class="skills-section">
     <div class="section-label">Tech Stack</div>
     <div class="skill-tags">
+      <!-- Core Analytics (paling relevan, taruh duluan) -->
       <span class="skill-tag">Python</span>
-      <span class="skill-tag">R</span>
       <span class="skill-tag">SQL</span>
-      <span class="skill-tag">TensorFlow</span>
-      <span class="skill-tag">Scikit-learn</span>
-      <span class="skill-tag">Pandas</span>
-      <span class="skill-tag">NumPy</span>
-      <span class="skill-tag">Streamlit</span>
-      <span class="skill-tag">PyTorch</span>
-      <span class="skill-tag">Jupyter Notebook</span>
+      <span class="skill-tag">R</span>
       <span class="skill-tag">Excel</span>
       <span class="skill-tag">SPSS</span>
+
+      <!-- Visualization & BI -->
+      <span class="skill-tag">Power BI</span>
+      <span class="skill-tag">Streamlit</span>
+
+      <!-- Python Libraries -->
+      <span class="skill-tag">Pandas</span>
+      <span class="skill-tag">NumPy</span>
+      <span class="skill-tag">Scikit-learn</span>
+
+      <!-- ML/DL (pendukung, taruh belakang) -->
+      <span class="skill-tag">TensorFlow</span>
+      <span class="skill-tag">PyTorch</span>
+
+      <!-- Dev Tools -->
       <span class="skill-tag">Git</span>
+      <span class="skill-tag">Jupyter Notebook</span>
     </div>
+  </div>
   </div>
 
 <!-- PROJECTS -->
@@ -289,6 +456,64 @@
 
     <div class="projects-grid">
 
+      <!-- 1. Indonesian Poverty Indicators Dashboard -->
+    <div class="project-card">
+      <div class="card-image img-poverty">
+        <img src="YOUR_IMAGE_FILE.png" alt="Indonesian Poverty Indicators Dashboard">
+        <div class="card-image-overlay"></div>
+        <span class="card-type-badge">Data Dashboard</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Indonesian Poverty Indicators Dashboard</div>
+        <div class="card-desc">Interactive Power BI dashboard visualizing poverty trends across 8 Indonesian provinces from 2021–2025, covering poverty rate, HDI, and open unemployment rate.</div>
+        <div class="card-metrics">
+          <div class="metric-item"><span class="metric-val">38</span><span class="metric-lbl">Provinces</span></div>
+          <div class="metric-item"><span class="metric-val">5</span><span class="metric-lbl">Years</span></div>
+          <div class="metric-item"><span class="metric-val">7.0%</span><span class="metric-lbl">Poverty Rate 2025</span></div>
+        </div>
+        <div class="card-footer">
+          <div class="card-tags">
+            <span class="card-tag">Power BI</span>
+            <span class="card-tag">Excel</span>
+            <span class="card-tag">BPS</span>
+            <span class="card-tag">Data Visualization</span>
+          </div>
+          <div class="card-links">
+            <a href="https://github.com/salmazhafira/Dashboard-Indikator-Kemiskinan-Indonesia" class="card-link">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Olist E-Commerce Sales Dashboard -->
+    <div class="project-card">
+      <div class="card-image img-olist">
+        <img src="YOUR_IMAGE_FILE.png" alt="Olist E-Commerce Sales Dashboard">
+        <div class="card-image-overlay"></div>
+        <span class="card-type-badge">Data Dashboard</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Olist E-Commerce Sales Dashboard</div>
+        <div class="card-desc">Two-page interactive BI dashboard analyzing sales, customer behavior, product performance, and operational metrics of a Brazilian e-commerce platform from 2016–2018.</div>
+        <div class="card-metrics">
+          <div class="metric-item"><span class="metric-val">14.10M</span><span class="metric-lbl">Total Revenue</span></div>
+          <div class="metric-item"><span class="metric-val">4.08</span><span class="metric-lbl">Avg Review</span></div>
+          <div class="metric-item"><span class="metric-val">97%</span><span class="metric-lbl">Delivery Rate</span></div>
+        </div>
+        <div class="card-footer">
+          <div class="card-tags">
+            <span class="card-tag">Power BI</span>
+            <span class="card-tag">SQL</span>
+            <span class="card-tag">Excel</span>
+            <span class="card-tag">Kaggle</span>
+          </div>
+          <div class="card-links">
+            <a href="https://github.com/salmazhafira/Olist-E-Commerce-Sales-Dashboard" class="card-link">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </div>
+      
       <!-- 1. Image Classification -->
       <div class="project-card">
         <div class="card-image img-clf">
@@ -406,6 +631,348 @@
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- THESIS -->
+<section id="thesis">
+  <div class="section-wrap">
+    <div class="section-header">
+      <h2 class="section-title">Thesis</h2>
+      <span class="section-count">Bachelor's Final Project</span>
+    </div>
+    <div class="thesis-card">
+      <div>
+        <div class="thesis-eyebrow">Statistika · Universitas Padjadjaran · 2026</div>
+        <div class="thesis-title">KLASIFIKASI PENYAKIT DAUN PADI MENGGUNAKAN ARSITEKTUR MOBILENETV3-ECA </div>
+        <div class="thesis-meta">
+          Developed a lightweight deep learning model for rice leaf disease classification using MobileNetV3 enhanced with Efficient Channel Attention (ECA). The proposed model achieved up to 93.73% accuracy and 93.83% F1-score, demonstrating strong performance and computational efficiency for mobile and edge-based deployment.
+        </div>
+        <div class="thesis-tags">
+          <span class="card-tag">Machine Learning</span>
+          <span class="card-tag">Python</span>
+          <span class="card-tag">Computer Vision</span>
+          <span class="card-tag">Analisis Data</span>
+        </div>
+        <div class="thesis-links">
+          <a href="https://drive.google.com/file/d/1ZZ3YkX1hd-YbkOWxudKHOmV2VyrGkFsc/view?usp=sharing" class="card-link primary">📄 View Thesis</a>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;">
+        <span style="font-size:11px;color:var(--muted);white-space:nowrap;">IPK</span>
+        <span style="font-family:'DM Serif Display',serif;font-size:28px;color:var(--accent);line-height:1;">3.80</span>
+        <span style="font-size:11px;color:var(--muted);">3.80 / 4.00</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PENGALAMAN / MAGANG -->
+<section id="experience">
+  <div class="section-wrap">
+    <div class="section-header">
+      <h2 class="section-title">Professional Experience</h2>
+    </div>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-period">July 2024 –<br>Jan 2026</div>
+        </div>
+        <div class="timeline-right">
+          <div class="timeline-role">Research Intern</div>
+          <div class="timeline-company">Pusat Riset Kecerdasan Artifisial dan Big Data</div>
+          <div class="timeline-desc">Built a MobileNetV3-ECA image classification model with 93.73% accuracy, performed image data preprocessing, and contributed to research supporting an undergraduate thesis.</div>
+          <div class="timeline-tags">
+            <span class="card-tag">Python</span>
+            <span class="card-tag">Machine Learning</span>
+            <span class="card-tag">Paper</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-period">Feb 2025 –<br>July 2025</div>
+        </div>
+        <div class="timeline-right">
+          <div class="timeline-role">Machine Learning Cohort</div>
+          <div class="timeline-company">Coding Camp Powered by DBS Foundation</div>
+          <div class="timeline-desc">Selected among the top 3.9% of 63,000+ applicants and developed a VGG16-based waste classification model achieving 92.75% accuracy for integration into a collaborative full-stack web application.</div>
+          <div class="timeline-tags">
+            <span class="card-tag">Machine Learning</span>
+            <span class="card-tag">Python</span>
+            <span class="card-tag">SQL</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-period">Nov 2024 –<br>Apr 2025</div>
+        </div>
+        <div class="timeline-right">
+          <div class="timeline-role">Event & Research Specialist </div>
+          <div class="timeline-company">Whau Academy</div>
+          <div class="timeline-desc">Conducted research and coordinated online career development events to support smooth program delivery and enhance participant engagement.</div>
+          <div class="timeline-tags">
+            <span class="card-tag">Internet Research</span>
+            <span class="card-tag">Zoom/Google Meet</span>
+            <span class="card-tag">Zoom</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-period">Nov 2024 –<br>Feb 2025</div>
+        </div>
+        <div class="timeline-right">
+          <div class="timeline-role">Internal Team Member</div>
+          <div class="timeline-company">Caraku Academy</div>
+          <div class="timeline-desc">Supported the successful execution of online mentoring programs for university entrance preparation by coordinating class operations and collaborating with cross-functional teams.</div>
+          <div class="timeline-tags">
+            <span class="card-tag">Excel</span>
+            <span class="card-tag">word</span>
+            <span class="card-tag">Zoom</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ORGANISASI -->
+<section id="organization">
+  <div class="section-wrap">
+    <div class="section-header">
+      <h2 class="section-title">Organization & Committee</h2>
+      <span class="section-count">Campus Activities</span>
+    </div>
+    <div class="org-list">
+
+      <div class="org-item">
+        <div class="org-icon">👩‍🏫</div>
+        <div class="org-body">
+          <div class="org-role">Head of Mentoring Department</div>
+          <div class="org-name">Forum Ukhuwah Studi Islam (FUSI)</div>
+          <div class="org-period">Jan 2024 – Dec 2024 · Universitas Padjadjaran</div>
+          <div class="org-desc">Led the planning and execution of five mentoring programs while designing evaluation frameworks and implementing data-driven improvements to enhance program quality and participant engagement.</div>
+        </div>
+      </div>
+
+      <div class="org-item">
+        <div class="org-icon">📚</div>
+        <div class="org-body">
+          <div class="org-role">Student Academic Development Department Staff</div>
+          <div class="org-name">BE Abyakta Jayamahe Himasta FMIPA</div>
+          <div class="org-period">Jan 2023 – Dec 2023 · Universitas Padjadjaran</div>
+          <div class="org-desc">Coordinated academic support initiatives and leveraged student feedback to improve learning programs and enhance the overall student experience.</div>
+        </div>
+      </div>
+
+      <div class="org-item">
+        <div class="org-icon">✍️</div>
+        <div class="org-body">
+          <div class="org-role">Secretary</div>
+          <div class="org-name">Forum Ukhuwah Studi Islam (FUSI)</div>
+          <div class="org-period">Jan 2023 – Dec 2023 · Universitas Padjadjaran</div>
+          <div class="org-desc">Managed organizational documentation and supported the successful execution of workshops and seminars on applied statistics and data analysis.</div>
+        </div>
+      </div>
+
+      <div class="org-item">
+        <div class="org-icon">✍️</div>
+        <div class="org-body">
+          <div class="org-role">Division Secretary Staff</div>
+          <div class="org-name">Forum Kajian Statistika (FOKASI)</div>
+          <div class="org-period">Jan 2023 – Dec 2023 · Universitas Padjadjaran</div>
+          <div class="org-desc">Managed organizational documentation and coordinated cross-functional communication to support efficient program execution and timely achievement of organizational objectives.</div>
+        </div>
+      </div>      
+
+      <div class="org-item">
+        <div class="org-icon">💰</div>
+        <div class="org-body">
+          <div class="org-role">Treasurer</div>
+          <div class="org-name">Bangbara Education Festival 2024</div>
+          <div class="org-period">Nov 2023 – Jan 2024 · West Bandung</div>
+          <div class="org-desc">Oversaw budgeting, expense tracking, and financial reporting to ensure accurate and efficient management of event funds.</div>
+        </div>
+      </div>
+
+      <div class="org-item">
+        <div class="org-icon">🏆</div>
+        <div class="org-body">
+          <div class="org-role">Academic Innovation Achievement Department Staff</div>
+          <div class="org-name">Bangbara UNPAD</div>
+          <div class="org-period">Aug 2023 – Aug 2024 · Universitas Padjadjaran</div>
+          <div class="org-desc">Responsible for Bangbara Education Festival 2024 activities</div>
+        </div>
+      </div>
+
+      <div class="org-item">
+        <div class="org-icon">🔍</div>
+        <div class="org-body">
+          <div class="org-role">Assessors Division Staff</div>
+          <div class="org-name">Studi Pengenalan Lingkungan 2023</div>
+          <div class="org-period">Apr 2023 – Oct 2023 · Universitas Padjadjaran</div>
+          <div class="org-desc">Designed and evaluated student development programs, helping new students adapt to university life and align their learning goals with personal interests.</div>
+        </div>
+      </div>
+
+      <div class="org-item">
+        <div class="org-icon">📋</div>
+        <div class="org-body">
+          <div class="org-role">Vice Chairman of the Secretary Division</div>
+          <div class="org-name">Statistics's Got Talent 2023</div>
+          <div class="org-period">Feb 2023 – Apr 2023 · Universitas Padjadjaran</div>
+          <div class="org-desc">Coordinated event administration and documentation processes, including permits, proposals, accountability reports, and evaluations, to ensure smooth and well-organized event execution.</div>
+        </div>
+      </div>
+
+      <div class="org-item">
+        <div class="org-icon">🎪</div>
+        <div class="org-body">
+          <div class="org-role">Event Division Staff</div>
+          <div class="org-name">Bangbara Education Festival 2023</div>
+          <div class="org-period">Nov 2022 – Jan 2023 · West Bandung</div>
+          <div class="org-desc">Coordinated and executed educational outreach events, ensuring smooth event operations and effective post-event evaluation.</div>
+        </div>
+      </div>
+
+      <div class="org-item">
+        <div class="org-icon">📋</div>
+        <div class="org-body">
+          <div class="org-role">Secretary Division Staff</div>
+          <div class="org-name">P2U 2022</div>
+          <div class="org-period">Nov 2022 – Dec 2023 · Jatinangor</div>
+          <div class="org-desc">Managed administrative records, campaign documentation, and accountability reports to support effective organizational operations.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="section-wrap">
+    <div class="section-header">
+      <h2 class="section-title">Achievements & Publications</h2>
+    </div>
+    <div class="achievement-list">
+
+      <!-- Paper 1: Seminar Nasional -->
+      <div class="achievement-card">
+        <div class="achievement-badge badge-green">📄</div>
+        <div>
+          <div class="achievement-type">Publication · Presenter</div>
+          <div class="achievement-title">K-Means Clustering on Provincial Poverty & Economic Inequality in Indonesia</div>
+          <div class="achievement-event">Seminar Nasional Statistika Aktuaria III</div>
+          <div class="achievement-desc">Presented original research analyzing patterns of poverty and economic inequality across Indonesian provinces using K-Means Clustering.</div>
+          <div class="achievement-footer">
+            <span class="achievement-year">2024</span>
+            <a href="https://prosidingsnsa.statistics.unpad.ac.id/?journal=prosidingsnsa&page=article&op=view&path%5B%5D=380" class="cert-link">View Paper ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lomba -->
+      <div class="achievement-card">
+        <div class="achievement-badge badge-gold">🏆</div>
+        <div>
+          <div class="achievement-type">Competition · Winner</div>
+          <div class="achievement-title">1st Place — Young Entrepreneur Incubator</div>
+          <div class="achievement-event">Business Plan Competition · Himasta FMIPA Unpad</div>
+          <div class="achievement-desc">Won the business plan competition organized by Himpunan Mahasiswa Statistika FMIPA Universitas Padjadjaran.</div>
+          <div class="achievement-footer">
+            <span class="achievement-year">2023</span>
+            <a href="https://drive.google.com/file/d/1mMi1PEuCNmpLn8CmuolDNVjfLZPvexYT/view?usp=sharing" class="cert-link">View Certificate ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Paper 2: International Conference -->
+      <div class="achievement-card">
+        <div class="achievement-badge badge-blue">🌐</div>
+        <div>
+          <div class="achievement-type">Publication · Presenter</div>
+          <div class="achievement-title">Video Game Addiction & Social Isolation Among Young Adults</div>
+          <div class="achievement-event">3rd International Conference on Applied Statistics (ICAS III)</div>
+          <div class="achievement-desc">Presented research on the relationship between video game addiction and social isolation in young adults at an international academic forum.</div>
+          <div class="achievement-footer">
+            <span class="achievement-year">2023</span>
+            <a href="https://drive.google.com/file/d/1ssZzFHhQK0jm9LLSXcHkjbZz18qCS1kU/view?usp=sharing" class="cert-link">View Certificate ↗</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SERTIFIKAT & PELATIHAN -->
+<section id="certificates">
+  <div class="section-wrap">
+    <div class="section-header">
+      <h2 class="section-title">Training & Courses</h2>
+      <span class="section-count"></span>
+    </div>
+    <div class="cert-grid">
+
+      <div class="cert-card">
+        <div class="cert-icon">📗</div>
+        <div class="cert-body">
+          <div class="cert-name">Excel Power Tools Master Formulas, Automation & Data Analys</div>
+          <div class="cert-issuer">Udemy · Excel</div>
+          <div class="cert-date">June 2026</div>
+          <a href="https://drive.google.com/file/d/1oJA7YoYThNnhLRpQtxIq4iWRRRMh0jEk/view?usp=sharing" class="cert-link">View Certificate ↗</a>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon">📊</div>
+        <div class="cert-body">
+          <div class="cert-name">Mastering Microsoft Power BI: Unleashing Insights - AI/ML</div>
+          <div class="cert-issuer">Udemy · Power BI</div>
+          <div class="cert-date">June 2026</div>
+          <a href="https://drive.google.com/file/d/1hJPQ_2Zht6il-covtE9OeQsnB1B5JyjF/view?usp=sharing" class="cert-link">View Certificate ↗</a>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon">🗄️</div>
+        <div class="cert-body">
+          <div class="cert-name">SQL For Everyone Transform Data into Insights</div>
+          <div class="cert-issuer">Udemy · SQL</div>
+          <div class="cert-date">June 2026</div>
+          <a href="https://drive.google.com/file/d/15SLorpazA8wOpFOkfia36Qz_lJj1mvyM/view?usp=sharing" class="cert-link">View Certificate ↗</a>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon">🤖</div>
+        <div class="cert-body">
+          <div class="cert-name">Machine Learning Engineer</div>
+          <div class="cert-issuer">Coding Camp powered by DBS Foundation · Machine Learning</div>
+          <div class="cert-date">July 2025</div>
+          <a href="https://drive.google.com/file/d/1e-pRrgL4DqoGcVBo14zaaekzICkVjgeF/view?usp=sharing" class="cert-link">View Certificate ↗</a>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon">⚙️</div>
+        <div class="cert-body">
+          <div class="cert-name">Machine Learning Terapan</div>
+          <div class="cert-issuer">Dicoding · Machine Learning</div>
+          <div class="cert-date">May 2025</div>
+          <a href="https://drive.google.com/file/d/1rmiqVRwfNOdP0MgCuxPigj9qbrSN0Tkt/view?usp=sharing" class="cert-link">View Certificate ↗</a>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
